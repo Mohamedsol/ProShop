@@ -21,10 +21,12 @@ const reducer = combineReducers({
     userUpdateProfile: userUpdateProfileReducer,
 })
 
+// get the cartItems data from local storage and store it in cartItemsFromStorage
 const cartItemsFromStorage = localStorage.getItem('cartItems')
   ? JSON.parse(localStorage.getItem('cartItems'))
   : []
 
+// get the userInfo data from local storage and store it in userInfoFromStorage
 const userInfoFromStorage = localStorage.getItem('userInfo')
 ? JSON.parse(localStorage.getItem('userInfo'))
 : null  
@@ -36,6 +38,7 @@ const initialState = {
 
 const middleware = [thunk]
 
+// create redux store
 const store = createStore(reducer, initialState, composeWithDevTools(applyMiddleware(...middleware)))
 
 
