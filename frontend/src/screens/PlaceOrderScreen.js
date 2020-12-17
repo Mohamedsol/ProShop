@@ -17,7 +17,8 @@ const PlaceOrderScreen = ({ history }) => {
 
     useEffect(() => {
         if (success) {
-        history.push(`/order/${order._id}`)
+        /* history.push(`/order/${order._id}`) */
+        console.log('success')
         }
         // eslint-disable-next-line
     }, [history, success])
@@ -124,7 +125,8 @@ const PlaceOrderScreen = ({ history }) => {
                 <ListGroup.Item>
                     <Row>
                     <Col>Shipping</Col>
-                    <Col>{cart.shippingPrice === 0 ? 'Free' : `$${cart.shippingPrice}`}</Col>
+                    {/* eslint-disable-next-line */}
+                    <Col>{cart.shippingPrice == 0 ? 'Free' : `$${cart.shippingPrice}`}</Col>
                     </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
@@ -143,7 +145,7 @@ const PlaceOrderScreen = ({ history }) => {
                 <ListGroup.Item>
                 {error && <Message variant='danger'>{error}</Message>}
                 </ListGroup.Item>
-                
+
                 <ListGroup.Item>
                     <Button
                     type='button'
